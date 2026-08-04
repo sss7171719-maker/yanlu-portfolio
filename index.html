@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>孙延璐 · Advertising Product & AI Efficiency</title>
+  <meta name="description" content="孙延璐个人作品集 — 广告产品·AI提效·电商视频" />
+
+  <!-- Fonts：display=swap 保证超时不阻塞文字渲染 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ─── NAV ─── -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand" aria-label="回到顶部">孙延璐</a>
+
+      <nav class="nav__links" aria-label="主导航">
+        <a href="#resume" class="nav__link">简历</a>
+        <a href="#tools"  class="nav__link">AI 工具</a>
+        <a href="#videos" class="nav__link">电商视频</a>
+      </nav>
+
+      <div class="nav__right">
+        <a href="#contact" class="btn btn--pill btn--sm btn--primary">联系我</a>
+        <button class="nav__hamburger" aria-label="菜单" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── MOBILE MENU ─── -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-menu__links">
+      <a href="#resume"  class="mobile-menu__link">简历</a>
+      <a href="#tools"   class="mobile-menu__link">AI 工具</a>
+      <a href="#videos"  class="mobile-menu__link">电商视频</a>
+      <a href="#contact" class="mobile-menu__link">联系我</a>
+    </nav>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+      <div class="hero__eyebrow">广告产品 · AI 提效</div>
+
+      <h1 class="hero__title">
+        结合创意<br />与业务落地，<br />
+        打造<span class="hero__title-highlight">可量化</span>的<br />
+        <span class="hero__rotating-wrap" aria-live="polite">
+          <span class="hero__rotating" id="heroRotating">广告产品</span>
+        </span>作品
+      </h1>
+
+      <p class="hero__sub">
+        Advertising Product · AI Efficiency · E-commerce Video
+      </p>
+
+      <div class="hero__ctas">
+        <a href="#tools" class="btn btn--pill btn--primary btn--lg">查看作品</a>
+        <a href="assets/resume/resume.pdf" class="btn btn--pill btn--outline btn--lg" target="_blank" rel="noopener">下载简历</a>
+      </div>
+    </div>
+
+    <!-- Decorative numbers -->
+    <div class="hero__stats" aria-hidden="true">
+      <div class="hero__stat">
+        <div class="hero__stat-row">
+          <span class="stat__num">4</span><span class="stat__unit--plain">.4</span>
+        </div>
+        <span class="stat__label">广告 ROI</span>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-row">
+          <span class="stat__num" data-target="147">0</span>
+          <span class="stat__unit">%</span>
+        </div>
+        <span class="stat__label">GMV 同比增长</span>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-row">
+          <span class="stat__num" data-target="150">0</span>
+          <span class="stat__unit--sm">万+</span>
+        </div>
+        <span class="stat__label">视频最高播放</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RESUME ─── -->
+  <section id="resume" class="section section--resume">
+    <div class="resume__inner">
+
+      <!-- LEFT: identity card -->
+      <aside class="resume__card reveal">
+        <div class="resume__avatar-wrap">
+          <img src="assets/resume/avatar.jpg" alt="孙延璐头像" class="resume__avatar" width="96" height="96" />
+        </div>
+        <h2 class="resume__name">孙延璐</h2>
+        <p class="resume__title-tag">目标岗位：广告产品实习生</p>
+
+        <ul class="resume__info">
+          <li>
+            <span class="resume__info-label">电话</span>
+            <a href="tel:13289293889" class="resume__info-val">13289293889</a>
+          </li>
+          <li>
+            <span class="resume__info-label">邮箱</span>
+            <a href="mailto:sunyanlu0710@163.com" class="resume__info-val">sunyanlu0710@163.com</a>
+          </li>
+          <li>
+            <span class="resume__info-label">实习时长</span>
+            <span class="resume__info-val">6 个月以上</span>
+          </li>
+          <li>
+            <span class="resume__info-label">英语</span>
+            <span class="resume__info-val">IELTS 6.5</span>
+          </li>
+        </ul>
+
+        <div class="resume__section-label">教育</div>
+        <ul class="resume__edu">
+          <li>
+            <span class="resume__edu-school">中国传媒大学</span>
+            <span class="resume__edu-major">广告与品牌学院 · 广告学 学硕</span>
+            <span class="resume__edu-period">2025.09 — 2028.06</span>
+          </li>
+          <li>
+            <span class="resume__edu-school">西北政法大学</span>
+            <span class="resume__edu-major">新闻传播学院 · 广播电视编导<br/>辅修：法学</span>
+            <span class="resume__edu-period">2021.09 — 2025.06</span>
+            <span class="resume__edu-gpa">GPA 3.77 / 4.0 &nbsp;·&nbsp; 专业排名 2/194（前 1%）</span>
+          </li>
+        </ul>
+
+        <div class="resume__section-label">AI 工具</div>
+        <div class="resume__skills">
+          <span class="skill-tag">Cursor</span>
+          <span class="skill-tag">Claude Code</span>
+          <span class="skill-tag">Codex</span>
+          <span class="skill-tag">GPT</span>
+          <span class="skill-tag">Gemini</span>
+          <span class="skill-tag">Seedance</span>
+          <span class="skill-tag">Midjourney</span>
+          <span class="skill-tag">Nano Banana</span>
+        </div>
+
+        <div class="resume__section-label">其他技能</div>
+        <div class="resume__skills">
+          <span class="skill-tag">PS</span>
+          <span class="skill-tag">PR</span>
+          <span class="skill-tag">剪映</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+
+        <a href="assets/resume/resume.pdf" class="btn btn--pill btn--primary btn--sm resume__dl" target="_blank" rel="noopener">↓ 下载简历</a>
+      </aside>
+
+      <!-- RIGHT: timeline -->
+      <div class="resume__timeline">
+
+        <div class="resume__tl-header reveal">
+          <span class="section-eyebrow">Resume</span>
+          <h2 class="section-title">实习 &amp; 项目经历</h2>
+        </div>
+
+        <!-- ── 实习经历 ── -->
+        <p class="resume__group-label reveal">实习经历</p>
+
+        <!-- JD -->
+        <article class="tl-item reveal">
+          <div class="tl-item__dot"></div>
+          <div class="tl-item__body">
+            <div class="tl-item__meta">
+              <span class="tl-item__company">京东</span>
+              <span class="tl-item__dept">采销</span>
+              <span class="tl-item__period">2026.03 — 2026.07</span>
+            </div>
+            <h3 class="tl-item__role">采销实习生</h3>
+            <ul class="tl-item__bullets">
+              <li><span class="bl">基础运营：</span>独立负责<strong>女士凉鞋</strong>自营商品销售运营，完成商品认领上架定价、信息优化及优惠券 / 活动资源提报；将 2 个商品评级从 F 提升到 B；使用萤火虫搭建 agent 电商主图优化工作流，AB 测试后点击率提升 <strong>0.9pp</strong></li>
+              <li><span class="bl">广告投放分析及优化：</span>分析商家投放需求，诊断已有投放问题，针对不同商品制定广告策略，监控调整出价与定向渠道，ROI 提升至 <strong>4.4</strong>，投后履约毛利率同比提升 <strong>18.7pp</strong></li>
+              <li><span class="bl">爆品策略制定：</span>定期竞品分析，发现爆品即跟品、设低价钩子、争取活动资源，打造 <strong>4 款爆品</strong>，GMV 同比增长 <strong>147%</strong>，履约毛利同比增长 <strong>654%</strong></li>
+              <li><span class="bl">AI 提效：</span>发现工作中待优化流程，用 Cursor / Claude Code / Codex 制作 <strong>10 余个 AI 提效插件、桌面工具</strong>，覆盖活动提报助手、百亿补贴报名插件、日报自动化、自动删差评、批量退券促等，全组每人减少至少 <strong>1h</strong> 工作时间</li>
+            </ul>
+            <div class="tl-item__tags">
+              <span class="tl-tag">广告投放</span>
+              <span class="tl-tag">AI 工具开发</span>
+              <span class="tl-tag">爆品运营</span>
+              <span class="tl-tag">数据分析</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- TikTok US ads -->
+        <article class="tl-item reveal">
+          <div class="tl-item__dot"></div>
+          <div class="tl-item__body">
+            <div class="tl-item__meta">
+              <span class="tl-item__company">西安晶闪科技</span>
+              <span class="tl-item__dept">TikTok 广告投放（美区）</span>
+              <span class="tl-item__period">2024.10 — 2025.03</span>
+            </div>
+            <h3 class="tl-item__role">TikTok 广告投放运营</h3>
+            <ul class="tl-item__bullets">
+              <li><span class="bl">广告策略制定：</span>制定并执行 TikTok Ads 投放策略，使用 <strong>Shop Ads &amp; GMV MAX</strong> 协同投放，监控广告数据实时表现，店铺日 GMV 从 <strong>$900 → $8,000</strong>，ROI 从 <strong>2 → 5.6</strong>，CPA 下降 <strong>150%</strong>，个人广告贡献度达到店铺总盈利的 <strong>90%+</strong></li>
+              <li><span class="bl">数据分析：</span>熟练使用 <strong>Excel、SQL</strong> 进行广告数据提取和分析，形成可视化图表汇报，分析广告素材爆款及停滞原因</li>
+              <li><span class="bl">脚本撰写：</span>分析广告素材 <strong>3s 留存率、完播率、CTR、互动率</strong>等指标，拆解爆款规律，提炼爆款视频叙事逻辑，输出达人专属高转化脚本，成功打造 <strong>150 万+</strong> 播放爆款内容，拓展优质达人资源超 <strong>50 人</strong></li>
+            </ul>
+            <div class="tl-item__tags">
+              <span class="tl-tag">TikTok Ads</span>
+              <span class="tl-tag">GMV MAX</span>
+              <span class="tl-tag">数据分析</span>
+              <span class="tl-tag">达人矩阵</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Huashang -->
+        <article class="tl-item reveal">
+          <div class="tl-item__dot"></div>
+          <div class="tl-item__body">
+            <div class="tl-item__meta">
+              <span class="tl-item__company">华商传媒</span>
+              <span class="tl-item__dept">用户产品运营</span>
+              <span class="tl-item__period">2024.01 — 2024.03</span>
+            </div>
+            <h3 class="tl-item__role">用户产品运营实习生</h3>
+            <ul class="tl-item__bullets">
+              <li><span class="bl">媒体运营：</span>负责<strong>西安国际汽车博览会</strong>抖音账号改版运营，策划选题并产出 <strong>15 条</strong>创意视频，视频曝光量提升 <strong>150%</strong></li>
+              <li><span class="bl">社区活跃：</span>围绕本地需求打造<strong>美食、邻里、亲子</strong>等垂直圈子，负责内容审核与话题引导，发起话题配合金币奖励，鼓励用户发布图文 &amp; 短视频</li>
+              <li><span class="bl">商业化数据分析：</span>用 <strong>SQL / Excel</strong> 处理参与率及完成率数据，搭建<strong>业务分析看板</strong>，定期输出复盘报告</li>
+              <li><span class="bl">活动策划：</span>对接品牌需求完成跨部门协作，举办<strong>华夏银行 3.15 活动</strong>、<strong>霸王茶姬山野织春风筝节</strong>等</li>
+            </ul>
+            <div class="tl-item__tags">
+              <span class="tl-tag">抖音运营</span>
+              <span class="tl-tag">数据看板</span>
+              <span class="tl-tag">活动策划</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ogilvy — 末位实习，竖线不延伸到项目经历标签 -->
+        <article class="tl-item tl-item--last-in-group reveal">
+          <div class="tl-item__dot"></div>
+          <div class="tl-item__body">
+            <div class="tl-item__meta">
+              <span class="tl-item__company">奥美广告（4A）</span>
+              <span class="tl-item__dept">AE 助理</span>
+              <span class="tl-item__period">2023.01 — 2023.02</span>
+            </div>
+            <h3 class="tl-item__role">AE 助理实习生</h3>
+            <ul class="tl-item__bullets">
+              <li><span class="bl">项目简介：</span>参与 <strong>Hipapa（海龟爸爸）儿童防晒霜</strong>整合营销项目，完成从市场分析到品牌营销的全方位策划</li>
+              <li><span class="bl">行业洞察与品牌分析：</span>对儿童防晒乳行业进行 <strong>5C 分析</strong>，制作儿童防晒洞察报告 <strong>15 页</strong>、儿童防晒品牌案例分析 <strong>22 页</strong></li>
+              <li><span class="bl">创意支持与营销策划：</span>根据品牌定位及目标，输出海龟爸爸<strong>小红书营销方案 18 页</strong>、品牌营销传播方案及建议 <strong>12 页</strong></li>
+            </ul>
+            <div class="tl-item__tags">
+              <span class="tl-tag">整合营销</span>
+              <span class="tl-tag">品牌策划</span>
+              <span class="tl-tag">AE</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── 项目经历 ── -->
+        <p class="resume__group-label reveal">项目经历</p>
+
+        <!-- TikTok Shop SEA/LATAM -->
+        <article class="tl-item reveal">
+          <div class="tl-item__dot tl-item__dot--project"></div>
+          <div class="tl-item__body">
+            <div class="tl-item__meta">
+              <span class="tl-item__company">TikTok Shop</span>
+              <span class="tl-item__dept">东南亚 + 拉美 · 电商运营</span>
+              <span class="tl-item__period">2025.03 — 2025.10</span>
+            </div>
+            <h3 class="tl-item__role">TikTok 跨境电商运营</h3>
+            <ul class="tl-item__bullets">
+              <li><span class="bl">方法论总结：</span>新加坡跨境店（箱包<strong>一件代发大量铺品</strong>模式）日 GMV 达 <strong>1,000 SGD</strong>；墨西哥本土店（瑜伽女装<strong>海外仓品牌精品店</strong>模式）月 GMV 达 <strong>35,000 MXN</strong></li>
+              <li><span class="bl">用户增长策略：</span>对墨西哥 TikTok 店铺消费者、合作达人和 KOL 粉丝进行 <strong>WhatsApp 主动建联</strong>，通过发优惠券、折扣、满减、满送等活动拉新促活，曝光量提升 <strong>30%</strong>，实现消费者增长超 <strong>10%</strong></li>
+              <li><span class="bl">AI 视频制作：</span>使用 <strong>Sora 2</strong> 生成 10 个类目 AI 电商带货视频，结合 ChatGPT 优化提示词与内容脚本，与团队合作完成德国区 TikTok 内容投放，实现视频累计播放量 <strong>50 万+</strong></li>
+            </ul>
+            <div class="tl-item__tags">
+              <span class="tl-tag">Sora 2</span>
+              <span class="tl-tag">跨境电商</span>
+              <span class="tl-tag">用户增长</span>
+              <span class="tl-tag">AI 视频</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.resume__timeline -->
+    </div><!-- /.resume__inner -->
+  </section>
+
+  <!-- ─── TOOLS ─── -->
+  <section id="tools" class="section section--tools">
+    <div class="tools__inner">
+
+      <!-- Header -->
+      <div class="tools__header reveal">
+        <span class="section-eyebrow">AI Efficiency Tools</span>
+        <h2 class="section-title">用 AI 把重复劳动<br />变成一键自动化</h2>
+        <p class="tools__header-sub">在京东采销实习期间独立开发 10+ 款浏览器插件与数据看板，覆盖活动提报、批量操作、数据复盘全链路，全组每人每天节省 1h+。</p>
+        <a href="assets/resume/manual.pdf" class="btn btn--pill btn--outline btn--sm" target="_blank" rel="noopener">查看完整工具手册 →</a>
+      </div>
+
+      <!-- ── Marquee 跑马灯 ── -->
+      <div class="marquee-wrap" aria-hidden="true">
+        <div class="marquee__track">
+          <span class="marquee__item">底表抓取</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">百补提报</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">批量退券</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">图搜同款</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">秒杀降价</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">黄金眼下载</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">公海池认领</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">批量换图</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">毛利看板</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">优惠券复盘</span>
+          <span class="marquee__sep">·</span>
+          <!-- duplicate for seamless loop -->
+          <span class="marquee__item">底表抓取</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">百补提报</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">批量退券</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">图搜同款</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">秒杀降价</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">黄金眼下载</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">公海池认领</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">批量换图</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">毛利看板</span>
+          <span class="marquee__sep">·</span>
+          <span class="marquee__item">优惠券复盘</span>
+          <span class="marquee__sep">·</span>
+        </div>
+      </div>
+
+      <!-- ── 4 主推工具大案例条 ── -->
+      <div class="tools__cases">
+
+        <!-- 1. 底表抓取 -->
+        <article class="tool-case reveal" data-index="01">
+          <div class="tool-case__text">
+            <div class="tool-case__num">01</div>
+            <h3 class="tool-case__name">底表抓取助手</h3>
+            <p class="tool-case__tagline">抓底表 → 出报名表 → 裸跑排查，一条龙</p>
+            <ul class="tool-case__points">
+              <li>抓取 7 类商品/广告数据，多子账号免密切换、累积合并</li>
+              <li>内置活动报名出表工具，自动匹配算价卡毛利</li>
+              <li>一键裸跑排查：看哪些 SKU 在六类活动里一个都没占</li>
+            </ul>
+            <span class="tool-case__type">浏览器插件 + 网页工具</span>
+          </div>
+          <div class="tool-case__visual">
+            <div class="tool-slider" data-slider>
+              <div class="tool-slider__track">
+                <img src="assets/plugins/tool-imgs/dibiao/1.png" alt="底表抓取助手截图1" loading="lazy" />
+                <img src="assets/plugins/tool-imgs/dibiao/2.png" alt="底表抓取助手截图2" loading="lazy" />
+                <img src="assets/plugins/tool-imgs/dibiao/3.png" alt="底表抓取助手截图3" loading="lazy" />
+              </div>
+              <button class="tool-slider__prev" aria-label="上一张">‹</button>
+              <button class="tool-slider__next" aria-label="下一张">›</button>
+              <div class="tool-slider__dots">
+                <span class="tool-slider__dot is-active"></span>
+                <span class="tool-slider__dot"></span>
+                <span class="tool-slider__dot"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. 百补提报 -->
+        <article class="tool-case tool-case--flip reveal" data-index="02">
+          <div class="tool-case__text">
+            <div class="tool-case__num">02</div>
+            <h3 class="tool-case__name">百补辅助提报助手</h3>
+            <p class="tool-case__tagline">上传价格表，自动批量提报百亿补贴</p>
+            <ul class="tool-case__points">
+              <li>上传「SKU + 提报价」表格，插件串行逐个自动提报</li>
+              <li>结束后导出成功 / 失败名单，报不上的跳过并记录原因</li>
+            </ul>
+            <span class="tool-case__type">浏览器插件</span>
+          </div>
+          <div class="tool-case__visual">
+            <div class="tool-slider" data-slider>
+              <div class="tool-slider__track">
+                <img src="assets/plugins/tool-imgs/baibu/1.png" alt="百补辅助提报助手截图" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. 退券退官直 -->
+        <article class="tool-case reveal" data-index="03">
+          <div class="tool-case__text">
+            <div class="tool-case__num">03</div>
+            <h3 class="tool-case__name">自动退券 + 退官直 <small>v2.3.4</small></h3>
+            <p class="tool-case__tagline">按 SPU 批量退券 / 退促 / 退官直</p>
+            <ul class="tool-case__points">
+              <li>输入 SPU ID 扫描，树形浮窗勾选要退的项</li>
+              <li>批量退券 / 退促销 / 退官方直降，结果可导 CSV</li>
+            </ul>
+            <span class="tool-case__type">浏览器插件</span>
+          </div>
+          <div class="tool-case__visual">
+            <div class="tool-slider" data-slider>
+              <div class="tool-slider__track">
+                <img src="assets/plugins/tool-imgs/tuijuan/1.png" alt="自动退券退官直截图1" loading="lazy" />
+                <img src="assets/plugins/tool-imgs/tuijuan/2.png" alt="自动退券退官直截图2" loading="lazy" />
+              </div>
+              <button class="tool-slider__prev" aria-label="上一张">‹</button>
+              <button class="tool-slider__next" aria-label="下一张">›</button>
+              <div class="tool-slider__dots">
+                <span class="tool-slider__dot is-active"></span>
+                <span class="tool-slider__dot"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. 图搜同款 -->
+        <article class="tool-case tool-case--flip reveal" data-index="04">
+          <div class="tool-case__text">
+            <div class="tool-case__num">04</div>
+            <h3 class="tool-case__name">同款主图视频图搜助手 <small>v2.32.3</small></h3>
+            <p class="tool-case__tagline">京东 SPU → 1688 找有主图视频的同款</p>
+            <ul class="tool-case__points">
+              <li>输入京东 SPU → 取主图 → 1688 图搜 → 筛出有主图视频的同款</li>
+              <li>多 SPU 自动新开标签排队跑，可预览下载，导明细 CSV</li>
+            </ul>
+            <span class="tool-case__type">浏览器插件</span>
+          </div>
+          <div class="tool-case__visual">
+            <div class="tool-slider" data-slider>
+              <div class="tool-slider__track">
+                <img src="assets/plugins/tool-imgs/tusou/1.png" alt="图搜同款助手截图" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.tools__cases -->
+
+      <!-- ── 更多工具 折叠列表 ── -->
+      <div class="tools__more reveal">
+        <button class="tools__more-toggle" aria-expanded="false" aria-controls="moreToolsList">
+          <span class="tools__more-label">查看更多工具</span>
+          <span class="tools__more-icon" aria-hidden="true">+</span>
+        </button>
+        <ul class="tools__more-list" id="moreToolsList" aria-hidden="true">
+          <li><span class="more-tool__name">公海池认领驳回助手 <small>v3.9</small></span><span class="more-tool__desc">批量认领/驳回自营商品，自动填三猎算售价</span></li>
+          <li><span class="more-tool__name">黄金眼定时下载助手 <small>v1.2.1</small></span><span class="more-tool__desc">报表定时/一键导出，自动下载归档</span></li>
+          <li><span class="more-tool__name">秒杀一键降价助手 <small>v1.0.0</small></span><span class="more-tool__desc">SPU 维度批量把秒杀价降到达标，自动算最高秒杀价</span></li>
+          <li><span class="more-tool__name">券下商品清单合并助手 <small>v1.7.0</small></span><span class="more-tool__desc">券管理后台多清单一键导出合并</span></li>
+          <li><span class="more-tool__name">批量图片自动化 <small>v3.1</small></span><span class="more-tool__desc">素材中心批量换图全流程自动跑</span></li>
+          <li><span class="more-tool__name">王牌单品批量整列助手 <small>v1.1.0</small></span><span class="more-tool__desc">报名页缺失列补「批量整列」填充</span></li>
+          <li><span class="more-tool__name">日报便签助手</span><span class="more-tool__desc">桌面工具（Python + Playwright 打包 exe）</span></li>
+          <li><span class="more-tool__name">自动删差评插件 <small>4.0</small></span><span class="more-tool__desc">自动化处理差评工单，批量操作</span></li>
+          <li><span class="more-tool__name">京喜自营毛利分析看板</span><span class="more-tool__desc">异常品清单 + 潜力品清单 + 广告效率 + 环比归因</span></li>
+          <li><span class="more-tool__name">优惠券复盘看板</span><span class="more-tool__desc">自动按批次 ID 匹配券种，看图出周报</span></li>
+          <li><span class="more-tool__name">潜力品优化工具</span><span class="more-tool__desc">筛出潜力品 + 四象限分类 + 建议动作</span></li>
+          <li><span class="more-tool__name">毛利广告分析看板</span><span class="more-tool__desc">广告效率分析 + 环比归因，辅助决策</span></li>
+        </ul>
+      </div>
+
+    </div><!-- /.tools__inner -->
+  </section>
+
+  <!-- ─── VIDEOS ─── -->
+  <section id="videos" class="section section--videos">
+    <div class="videos__inner">
+
+      <!-- Header -->
+      <div class="videos__header reveal">
+        <span class="section-eyebrow">Video Works</span>
+        <h2 class="section-title">视频作品</h2>
+      </div>
+
+      <!-- ── 三大分类 ── -->
+
+      <!-- 一、AI 生成视频 -->
+      <div class="video-cat reveal">
+        <div class="video-cat__intro">
+          <div class="video-cat__num">01</div>
+          <div class="video-cat__text">
+            <h3 class="video-cat__title">AI 生成视频</h3>
+            <p class="video-cat__sub">Sora 2 + ChatGPT · 德国区 TikTok 电商</p>
+            <p class="video-cat__desc">运用 Sora 2 生成 10 个类目 AI 电商带货视频，结合 ChatGPT 优化提示词与内容脚本，与团队合作完成德国区 TikTok 内容投放，AI 视频累计播放量 <strong>50 万+</strong>，验证 AI 内容生产在跨境电商的落地效果。</p>
+          </div>
+          </div>
+        </div>
+        <div class="videos__grid" id="videosGridAI">
+          <div class="videos__loading">检测视频文件中…</div>
+        </div>
+      </div>
+
+      <!-- 二、SHAPSHE 视频剪辑 -->
+      <div class="video-cat reveal">
+        <div class="video-cat__intro">
+          <div class="video-cat__num">02</div>
+          <div class="video-cat__text">
+            <h3 class="video-cat__title">SHAPSHE 视频剪辑</h3>
+            <p class="video-cat__sub">TikTok Shop 美区 · 塑身衣</p>
+            <p class="video-cat__desc">建立内容数据复盘体系，分析 3s 留存率、完播率、CTR、互动率等指标，拆解爆款规律，提炼高转化视频叙事逻辑，输出达人专属脚本，成功打造 <strong>150 万+</strong> 播放爆款，有效提升账号曝光与店铺出单。</p>
+            <a href="https://www.tiktok.com/@shapshe" class="video-cat__tiktok-link" target="_blank" rel="noopener">
+              <span class="video-cat__tiktok-icon" aria-hidden="true">↗</span>
+              @shapshe TikTok 主页
+            </a>
+          </div>
+        </div>
+        <div class="videos__grid" id="videosGridShapshe">
+          <div class="videos__loading">检测视频文件中…</div>
+        </div>
+      </div>
+
+      <!-- 三、抖音·华商传媒 -->
+      <div class="video-cat reveal">
+        <div class="video-cat__intro">
+          <div class="video-cat__num">03</div>
+          <div class="video-cat__text">
+            <h3 class="video-cat__title">汽车知识类视频</h3>
+            <p class="video-cat__sub">抖音账号运营 · 华商传媒</p>
+            <p class="video-cat__desc">负责西安国际汽车博览会抖音账号改版运营，策划选题并产出 <strong>15 条</strong>创意视频，视频曝光量提升 <strong>150%</strong>。</p>
+          </div>
+        </div>
+        <div class="videos__grid" id="videosGridDouyin">
+          <div class="videos__loading">检测视频文件中…</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <p class="contact__eyebrow">Contact</p>
+      <h2 class="contact__title reveal">
+        一起创造<br />下一个<span class="contact__title-blue">爆款</span>。
+      </h2>
+
+      <div class="contact__links reveal">
+        <a href="tel:13289293889" class="contact__link">
+          <span class="contact__link-icon" aria-hidden="true">☎</span>
+          13289293889
+        </a>
+        <a href="mailto:sunyanlu0710@163.com" class="contact__link">
+          <span class="contact__link-icon" aria-hidden="true">✉</span>
+          sunyanlu0710@163.com
+        </a>
+        <a href="assets/resume/resume.pdf" class="contact__link contact__link--resume" target="_blank" rel="noopener">
+          <span class="contact__link-icon" aria-hidden="true">↓</span>
+          下载简历 PDF
+        </a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2026 孙延璐 · Yanlu Sun · Built with Claude Code</p>
+    </footer>
+  </section>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
