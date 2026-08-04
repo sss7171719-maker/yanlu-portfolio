@@ -77,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       if (lenis) {
-        lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+        const isContact = anchor.getAttribute('href') === '#contact';
+        lenis.scrollTo(target, { offset: isContact ? 0 : -80, duration: 1.4 });
       } else {
         target.scrollIntoView({ behavior: 'smooth' });
       }
