@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="video-card__media">
             <span class="video-card__badge">${badge}</span>
             <video class="video-card__video" src="${src}"
-              poster="${posterSrc}" preload="none" loop muted playsinline></video>
+              poster="${posterSrc}" preload="none" loop playsinline></video>
             <div class="video-card__play">
               <div class="video-card__play-icon"></div>
             </div>
