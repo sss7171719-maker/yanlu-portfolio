@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 4. Smooth anchor scroll (nav links) ────────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
+      const href = anchor.getAttribute('href');
+      const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
       if (lenis) {
-        if (isContact) {
-          // 视频区动态渲染会改变页面高度，直接滚到底部最可靠
+        if (href === '#contact') {
           lenis.scrollTo(document.body.scrollHeight, { duration: 1.4 });
         } else {
           lenis.scrollTo(target, { offset: -80, duration: 1.4 });
