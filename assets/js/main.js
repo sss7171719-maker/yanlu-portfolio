@@ -77,8 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       if (lenis) {
-        const isContact = anchor.getAttribute('href') === '#contact';
-        lenis.scrollTo(target, { offset: isContact ? 0 : -80, duration: 1.4 });
+        if (isContact) {
+          // 视频区动态渲染会改变页面高度，直接滚到底部最可靠
+          lenis.scrollTo(document.body.scrollHeight, { duration: 1.4 });
+        } else {
+          lenis.scrollTo(target, { offset: -80, duration: 1.4 });
+        }
       } else {
         target.scrollIntoView({ behavior: 'smooth' });
       }
