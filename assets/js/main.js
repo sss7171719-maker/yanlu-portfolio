@@ -77,12 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      if (lenis) {
-        if (href === '#contact') {
-          lenis.scrollTo(document.body.scrollHeight, { duration: 1.4 });
-        } else {
-          lenis.scrollTo(target, { offset: -80, duration: 1.4 });
-        }
+      if (href === '#contact') {
+        // 视频动态渲染导致页面高度不稳定，暂停 Lenis 用原生定位
+        if (lenis) lenis.stop();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => { if (lenis) lenis.start(); }, 1200);
+      } else if (lenis) {
+        lenis.scrollTo(target, { offset: -80, duration: 1.4 });
       } else {
         target.scrollIntoView({ behavior: 'smooth' });
       }
