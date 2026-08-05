@@ -1267,6 +1267,15 @@ a.resume__info-val:hover { color: var(--blue); }
   object-fit: cover;
 }
 
+.video-card__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 /* Play button overlay */
 .video-card__play {
   position: absolute;

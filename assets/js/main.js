@@ -253,123 +253,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 10. 视频 Section 动态渲染 ─────────────────────────────────────────
-  const FEISHU_URL = 'https://nxh7r558yue.feishu.cn/wiki/AIiFwlJt5isfehkhE9nc56Sunic';
-
-  // 三个分类的视频文件清单（路径对应子文件夹实际文件名）
+  // ── 10. 视频 Section — B站嵌入 ──────────────────────────────────────────
   const VIDEO_GROUPS = [
     {
       gridId: 'videosGridAI',
       badge: 'AI · Sora 2',
-      feishu: true,
       videos: [
-        { file: 'AI电商视频/假睫毛.mp4',     title: '假睫毛' },
-        { file: 'AI电商视频/卷发棒.mp4',     title: '卷发棒' },
-        { file: 'AI电商视频/除臭喷雾.mp4',   title: '除臭喷雾' },
-        { file: 'AI电商视频/儿童手表.mp4',   title: '儿童手表' },
-        { file: 'AI电商视频/护肤品.mp4',     title: '护肤品' },
-        { file: 'AI电商视频/积木玩具.mp4',   title: '积木玩具' },
-        { file: 'AI电商视频/项链饰品.mp4',   title: '项链饰品' },
-        { file: 'AI电商视频/宠物保健品.mp4', title: '宠物保健品' },
-        { file: 'AI电商视频/男士香水.mp4',   title: '男士香水' },
-        { file: 'AI电商视频/喷油瓶.mp4',     title: '喷油瓶' },
+        { bv: 'BV1tnMr6JExs', title: '假睫毛' },
+        { bv: 'BV12nMr6EE2X', title: '卷发棒' },
+        { bv: 'BV1mnMr6EE4k', title: '除臭喷雾' },
+        { bv: 'BV12nMr6EErz', title: '儿童手表' },
+        { bv: 'BV1mnMr6EEKu', title: '护肤品' },
+        { bv: 'BV1TnMr6JExJ', title: '积木玩具' },
+        { bv: 'BV1mnMr6EE8v', title: '项链饰品' },
+        { bv: 'BV1tnMr6JEMd', title: '宠物保健品' },
+        { bv: 'BV1mnMr6EEJw', title: '男士香水' },
+        { bv: 'BV1mnMr6EEjT', title: '喷油瓶' },
       ],
     },
     {
       gridId: 'videosGridShapshe',
       badge: 'TikTok · 美区',
-      feishu: false,
       videos: [
-        { file: 'SHAPSHE视频剪辑-塑身衣视频/塑身衣视频1.mp4', title: '塑身衣 01' },
-        { file: 'SHAPSHE视频剪辑-塑身衣视频/塑身衣视频2.mp4', title: '塑身衣 02' },
-        { file: 'SHAPSHE视频剪辑-塑身衣视频/塑身衣视频3.mp4', title: '塑身衣 03' },
-        { file: 'SHAPSHE视频剪辑-塑身衣视频/塑身衣视频4.mp4', title: '塑身衣 04' },
-        { file: 'SHAPSHE视频剪辑-塑身衣视频/塑身衣视频5.mp4', title: '塑身衣 05' },
+        { bv: 'BV13GMr6REvY', title: '塑身衣 01' },
+        { bv: 'BV13GMr6RELZ', title: '塑身衣 02' },
+        { bv: 'BV13GMr6REcR', title: '塑身衣 03' },
+        { bv: 'BV13GMr6REcR', title: '塑身衣 04' },  // ⚠️ BV号与03相同，请确认
+        { bv: 'BV13GMr6REsp', title: '塑身衣 05' },
       ],
     },
     {
       gridId: 'videosGridDouyin',
       badge: '抖音 · 华商传媒',
-      feishu: false,
       videos: [
-        { file: '汽车知识类视频制作-抖音账号运营-华商传媒/48V轻混.mp4',  title: '48V 轻混' },
-        { file: '汽车知识类视频制作-抖音账号运营-华商传媒/AEB.mp4',     title: 'AEB 刹车辅助' },
-        { file: '汽车知识类视频制作-抖音账号运营-华商传媒/引擎.mp4',    title: '引擎' },
-        { file: '汽车知识类视频制作-抖音账号运营-华商传媒/悬挂.mp4',    title: '悬挂系统' },
-        { file: '汽车知识类视频制作-抖音账号运营-华商传媒/承载式车身.mp4', title: '承载式车身' },
+        { bv: 'BV1BCMC63E3W', title: '48V 轻混' },
+        { bv: 'BV1Q3Mr6sEhT', title: 'AEB 刹车辅助' },
+        { bv: 'BV1Q3Mr6sEAb', title: '引擎' },
+        { bv: 'BV1Q3Mr6sEaF', title: '悬挂系统' },
+        { bv: 'BV1Q3Mr6sE6t', title: '承载式车身' },
       ],
     },
   ];
 
-  // 检测文件是否存在（file:// 协议下直接返回 true，让 video 标签自行处理）
-  const isFileProtocol = location.protocol === 'file:';
-  const checkFile = src => isFileProtocol
-    ? Promise.resolve(true)
-    : fetch(src, { method: 'HEAD' }).then(r => r.ok).catch(() => false);
-
-  // 渲染一个 grid
-  const renderGrid = (gridEl, videos, badge, useFeishu) => {
+  const renderGrid = (gridEl, videos, badge) => {
     gridEl.innerHTML = '';
-    gridEl.style.display = 'grid'; // 确保 display 正常
 
     videos.forEach((v, i) => {
       const card = document.createElement('article');
       card.className = 'video-card reveal';
-      const src = encodeURI('assets/videos/' + v.file);
-
-      if (v.exists) {
-        // poster: 同路径结构放在 assets/posters/，扩展名换 .jpg
-        const posterSrc = encodeURI('assets/posters/' + v.file.replace(/\.mp4$/i, '.jpg'));
-        card.innerHTML = `
-          <div class="video-card__media">
-            <span class="video-card__badge">${badge}</span>
-            <video class="video-card__video" src="${src}"
-              poster="${posterSrc}" preload="none" loop playsinline></video>
-            <div class="video-card__play">
-              <div class="video-card__play-icon"></div>
-            </div>
-          </div>
-          <div class="video-card__info">
-            <p class="video-card__title">${v.title}</p>
-            <p class="video-card__meta">${badge}</p>
-          </div>`;
-
-        card.addEventListener('click', () => {
-          const vid = card.querySelector('video');
-          if (vid.paused) {
-            document.querySelectorAll('.video-card__video').forEach(el => {
-              if (el !== vid) { el.pause(); el.closest('.video-card').classList.remove('is-playing'); }
-            });
-            vid.play();
-            card.classList.add('is-playing');
-          } else {
-            vid.pause();
-            card.classList.remove('is-playing');
-          }
-        });
-
-      } else {
-        const fallbackLink = useFeishu
-          ? `<a href="${FEISHU_URL}" class="video-card__placeholder-link" target="_blank" rel="noopener">飞书查看</a>`
-          : '';
-        card.innerHTML = `
-          <div class="video-card__media">
-            <span class="video-card__badge">${badge}</span>
-            <div class="video-card__placeholder">
-              <span class="video-card__placeholder-icon" aria-hidden="true">▶</span>
-              <p class="video-card__placeholder-text">${v.title}</p>
-              ${fallbackLink}
-            </div>
-          </div>
-          <div class="video-card__info">
-            <p class="video-card__title">${v.title}</p>
-            <p class="video-card__meta">${badge}</p>
-          </div>`;
-      }
+      // B站嵌入：高清模式，无弹幕，no_relate 关闭相关推荐
+      const embedSrc = `https://player.bilibili.com/player.html?bvid=${v.bv}&page=1&high_quality=1&danmaku=0&autoplay=0`;
+      card.innerHTML = `
+        <div class="video-card__media">
+          <span class="video-card__badge">${badge}</span>
+          <iframe class="video-card__iframe"
+            src="${embedSrc}"
+            scrolling="no" frameborder="0" allowfullscreen="true"
+            sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts allow-popups">
+          </iframe>
+        </div>
+        <div class="video-card__info">
+          <p class="video-card__title">${v.title}</p>
+          <p class="video-card__meta">${badge}</p>
+        </div>`;
 
       gridEl.appendChild(card);
 
-      // reveal 动画
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.fromTo(card,
           { opacity: 0, y: 28 },
@@ -386,17 +335,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // 逐组处理
   VIDEO_GROUPS.forEach(group => {
     const gridEl = document.getElementById(group.gridId);
     if (!gridEl) return;
-
-    Promise.all(group.videos.map(v =>
-      checkFile(encodeURI('assets/videos/' + v.file))
-    )).then(results => {
-      const videos = group.videos.map((v, i) => ({ ...v, exists: results[i] }));
-      renderGrid(gridEl, videos, group.badge, group.feishu);
-    });
+    renderGrid(gridEl, group.videos, group.badge);
   });
 
 });
