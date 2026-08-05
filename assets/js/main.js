@@ -77,11 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
+
       if (href === '#contact') {
-        // 视频动态渲染导致页面高度不稳定，暂停 Lenis 用原生定位
+        // B站 iframe 加载会持续撑高页面，等高度稳定后再滚
         if (lenis) lenis.stop();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setTimeout(() => { if (lenis) lenis.start(); }, 1200);
+        let lastH = 0, stable = 0;
+        const waitStable = () => {
+          const h = document.body.scrollHeight;
+          if (h === lastH) {
+            stable++;
+          } else {
+            stable = 0;
+            lastH = h;
+          }
+          if (stable >= 4) {
+            // 高度连续4帧不变，直接设 scrollTop 跳到底
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            setTimeout(() => { if (lenis) lenis.start(); }, 800);
+          } else {
+            requestAnimationFrame(waitStable);
+          }
+        };
+        requestAnimationFrame(waitStable);
       } else if (lenis) {
         lenis.scrollTo(target, { offset: -80, duration: 1.4 });
       } else {
