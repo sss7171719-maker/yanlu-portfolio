@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 1.2,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
+      syncTouch: false,       // 关闭移动端触摸惯性接管，避免跳转后被拉回
+      touchMultiplier: 1.5,
     });
 
     function raf(time) {
@@ -79,26 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       if (href === '#contact') {
-        // B站 iframe 加载会持续撑高页面，等高度稳定后再滚
-        if (lenis) lenis.stop();
-        let lastH = 0, stable = 0;
-        const waitStable = () => {
-          const h = document.body.scrollHeight;
-          if (h === lastH) {
-            stable++;
-          } else {
-            stable = 0;
-            lastH = h;
-          }
-          if (stable >= 4) {
-            // 高度连续4帧不变，直接设 scrollTop 跳到底
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            setTimeout(() => { if (lenis) lenis.start(); }, 800);
-          } else {
-            requestAnimationFrame(waitStable);
-          }
-        };
-        requestAnimationFrame(waitStable);
+        // 彻底销毁 Lenis，原生瞬跳，无任何动画干扰
+        if (lenis) { lenis.destroy(); lenis = null; }
+        requestAnimationFrame(() => {
+          const y = target.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo(0, y);
+        });
       } else if (lenis) {
         lenis.scrollTo(target, { offset: -80, duration: 1.4 });
       } else {
