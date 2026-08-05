@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { bv: 'BV13GMr6REvY', title: '塑身衣 01' },
         { bv: 'BV13GMr6RELZ', title: '塑身衣 02' },
         { bv: 'BV13GMr6REcR', title: '塑身衣 03' },
-        { bv: 'BV13GMr6REcR', title: '塑身衣 04' },  // ⚠️ BV号与03相同，请确认
+        { bv: 'BV1DGMr69EY7', title: '塑身衣 04' },
         { bv: 'BV13GMr6REsp', title: '塑身衣 05' },
       ],
     },
